@@ -5,7 +5,7 @@ export default ({ postId }) => {
     const [comments, setComments] = useState([]);
 
     const fetchData = async () => {
-        const res = await axios.get(`http://localhost4001/posts/${postId}/comments`)
+        const res = await axios.get(`http://localhost:4001/posts/${postId}/comments`);
 
         setComments(res.data);
     };
@@ -14,11 +14,13 @@ export default ({ postId }) => {
         fetchData();
     }, []);
 
-    const renderComments = comments.map(comment => {
+    const renderedComments = comments.map(comment => {
         return <li key={comment.id}>{comment.content}</li>
     });
 
-    return <ul>
-        {renderComments}
-    </ul>;
-}
+    return(
+        <ul>
+            {renderedComments}
+        </ul>
+    );
+};

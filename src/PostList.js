@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { axios } from 'axios';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import CommentList from './CommentList';
 import CommentCreate from './CommentCreate';
 
@@ -29,10 +29,12 @@ export default () => {
                     <CommentCreate postId={post.id} />
                 </div>
             </div>
-        )
-    })
+        );
+    });
 
-    return <div className='d-flex flex-rox flex-wrap justify-content-between'>
-        {renderedPosts}
-    </div>
+    return (
+        <div className='d-flex flex-row flex-wrap justify-content-between'>
+            {renderedPosts}
+        </div>
+    );
 };

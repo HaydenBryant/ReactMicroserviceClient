@@ -12,5 +12,5 @@ export default () => {
            <h1>Posts</h1>
            <PostList />
         </div>
-    )
+    );
 };
